@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { Header } from './Header/Header';
+import { UserPage } from './User_Page/UserPage';
 
 function App() {
+
+  const [users, setUsers] = useState([]);
+  const [src, setSrc] = useState('');
+  const [filtered, setFiltered] = useState([])
+
+
+
+  useEffect(() => {
+    fetch('https://randomuser.me/api/?results=15')
+      .then(res => res.json())
+      .then(dta => {
+        setUsers(dta.results);
+        setFiltered(dta.results);
+      })
+  }, [])
+
+
+  useEffect(() => {
+    setFiltered(users.filter(e => (
+      e.name.first.toLowerCase().includes(src.toLowerCase()) ||
+      e.name.last.toLowerCase().includes(src.toLowerCase())
+    )))
+  }, [src])
+
+
+  console.log(filtered);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <UserPage users={filtered} inputVal={(arg) => setSrc(arg)} />
+    </>
+  )
 }
 
 export default App;

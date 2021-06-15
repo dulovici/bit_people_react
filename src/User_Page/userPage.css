@@ -1,0 +1,25 @@
+
+.wraper {
+    width: 1200px;
+    margin: auto;
+}
+.wraper>p {
+    text-align: right;
+    color: gray;
+    font-size: 15px;
+    margin-right: 5px;
+}
+.src {
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+
+.users {
+    width: 100%;
+    border: 1px solid rgb(211, 211, 211);
+}

@@ -1,0 +1,22 @@
+
+.header {
+    background-color: #ee6e73;
+    color: bisque;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 3px 3px 7px 1px rgba(0,0,0,0.33);
+}
+.header h1 {
+    padding: 20px;
+    font-weight: 200;
+    font-size: 25px;
+}
+.buttons {
+    display: flex;
+    padding-right: 30px;
+}
+.buttons h2 {
+    margin-left: 10px;
+}
