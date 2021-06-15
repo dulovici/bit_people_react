@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
 import { Header } from './Header/Header';
 import { UserPage } from './User_Page/UserPage';
 
 function App() {
 
   const [users, setUsers] = useState([]);
-  const [src, setSrc] = useState('');
   const [filtered, setFiltered] = useState([])
-
-
+  const [src, setSrc] = useState('');
+  
 
   useEffect(() => {
     fetch('https://randomuser.me/api/?results=15')
