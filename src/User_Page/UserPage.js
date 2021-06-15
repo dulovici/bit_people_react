@@ -20,7 +20,6 @@ export const UserPage = (props) => {
                     return <User key={e.cell} single={e} gender={e.gender} />
                 })}
             </div>
-
         </div>
     )
 }

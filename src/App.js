@@ -29,7 +29,6 @@ function App() {
   }, [src])
 
 
-  console.log(filtered);
   return (
     <>
       <Header />

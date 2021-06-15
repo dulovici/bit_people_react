@@ -14,7 +14,6 @@ export const User = (props) => {
                 <p>Email: {single.email} </p>
                 <p>DoB: {date.getDate()}.{date.getMonth()}.{date.getFullYear()} </p>
             </div>
-
         </div >
     )
 }
