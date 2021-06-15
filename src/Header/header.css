@@ -18,5 +18,6 @@
     padding-right: 30px;
 }
 .buttons h2 {
-    margin-left: 10px;
+    margin-left: 20px;
+    cursor: pointer;
 }

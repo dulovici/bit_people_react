@@ -6,8 +6,9 @@ import { UserPage } from './User_Page/UserPage';
 function App() {
 
   const [users, setUsers] = useState([]);
-  const [filtered, setFiltered] = useState([])
+  const [filtered, setFiltered] = useState([]);
   const [src, setSrc] = useState('');
+  const [refresh, setRefresh] = useState();
   
 
   useEffect(() => {
@@ -17,7 +18,7 @@ function App() {
         setUsers(dta.results);
         setFiltered(dta.results);
       })
-  }, [])
+  }, [refresh])
 
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header refresh={setRefresh} />
       <UserPage users={filtered} inputVal={(arg) => setSrc(arg)} />
     </>
   )
