@@ -8,8 +8,10 @@ function App() {
   const [users, setUsers] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [src, setSrc] = useState('');
+
   const [refresh, setRefresh] = useState();
-  
+  const [isActive, setIsActive] = useState(false);
+
 
   useEffect(() => {
     fetch('https://randomuser.me/api/?results=15')
@@ -26,13 +28,13 @@ function App() {
       e.name.first.toLowerCase().includes(src.toLowerCase()) ||
       e.name.last.toLowerCase().includes(src.toLowerCase())
     )))
-  }, [src])
+  }, [src, users])
 
 
   return (
     <>
-      <Header refresh={setRefresh} />
-      <UserPage users={filtered} inputVal={(arg) => setSrc(arg)} />
+      <Header refresh={setRefresh} setClass={() => setIsActive(!isActive)} />
+      <UserPage users={filtered} inputVal={(arg) => setSrc(arg)} gridClass={isActive} />
     </>
   )
 }
