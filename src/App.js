@@ -1,5 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import {Loading} from './Loading/Loading';
 import { Header } from './Header/Header';
 import { UserPage } from './User_Page/UserPage';
 
@@ -10,15 +11,18 @@ function App() {
   const [src, setSrc] = useState('');
 
   const [refresh, setRefresh] = useState();
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
 
   useEffect(() => {
+    setUsers([]);
     fetch('https://randomuser.me/api/?results=15')
       .then(res => res.json())
       .then(dta => {
-        setUsers(dta.results);
-        setFiltered(dta.results);
+        setTimeout(() => {
+          setUsers(dta.results);
+          setFiltered(dta.results);
+        }, 200);
       })
   }, [refresh])
 
@@ -33,8 +37,8 @@ function App() {
 
   return (
     <>
-      <Header refresh={setRefresh} setClass={() => setIsActive(!isActive)} />
-      <UserPage users={filtered} inputVal={(arg) => setSrc(arg)} gridClass={isActive} />
+      <Header refresh={setRefresh} setClass={() => setIsActive(!isActive)} isActive={isActive}/>
+      {users.length?<UserPage users={filtered} inputVal={(arg) => setSrc(arg)} gridClass={isActive}/>: <Loading />}
     </>
   )
 }
@@ -44,3 +48,4 @@ export default App;
 
 
 //NAPRAVI GRID VERZIJU
+

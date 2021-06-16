@@ -10,7 +10,7 @@
 }
 .header h1 {
     padding: 20px;
-    font-weight: 200;
+    font-weight: 300;
     font-size: 25px;
 }
 .buttons {
@@ -20,4 +20,8 @@
 .buttons h2 {
     margin-left: 20px;
     cursor: pointer;
+}
+
+.grid {
+    font-weight: 400;
 }
